@@ -754,3 +754,4 @@ G:\MVC_Core\MohiuddinCoreMasterDetailCrud\MohiuddinCoreMasterDetailCrud\obj\Debu
 G:\MVC_Core\MohiuddinCoreMasterDetailCrud\MohiuddinCoreMasterDetailCrud\obj\Debug\net8.0\MohiuddinCoreMasterDetailCrud.pdb
 G:\MVC_Core\MohiuddinCoreMasterDetailCrud\MohiuddinCoreMasterDetailCrud\obj\Debug\net8.0\MohiuddinCoreMasterDetailCrud.genruntimeconfig.cache
 G:\MVC_Core\MohiuddinCoreMasterDetailCrud\MohiuddinCoreMasterDetailCrud\obj\Debug\net8.0\ref\MohiuddinCoreMasterDetailCrud.dll
+G:\MVC_Core\MohiuddinCoreMasterDetailCrud\MohiuddinCoreMasterDetailCrud\obj\Debug\net8.0\MohiuddinCoreMasterDetailCrud.sourcelink.json

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MohiuddinCoreMasterDetailCrud.Models;
+using MohiuddinCoreMasterDetailCrud.Models.ViewModels;
 
 namespace MohiuddinCoreMasterDetailCrud.Controllers
 {
@@ -25,16 +26,24 @@ namespace MohiuddinCoreMasterDetailCrud.Controllers
 
         
         [HttpPost]
-        public JsonResult Insert([FromForm] Course course)
+public JsonResult Insert([FromForm] CourseViewModel courseViewModel)
+{
+    if (ModelState.IsValid)
+    {
+        var course = new Course
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(course);
-                _context.SaveChanges();
-                return Json(new { success = true });
-            }
-            return Json(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
-        }
+            CourseName = courseViewModel.CourseName,
+            DepartmentID = courseViewModel.DepartmentID
+        };
+
+        _context.Add(course);
+        _context.SaveChanges();
+        return Json(new { success = true });
+    }
+
+    return Json(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
+}
+
 
         [HttpGet]
         public JsonResult EditCourse(int id)
@@ -55,14 +64,15 @@ namespace MohiuddinCoreMasterDetailCrud.Controllers
                 {
                     course.CourseId,
                     course.CourseName,
-                    DepartmentId = course.DepartmentID,
+                    DepartmentID = course.DepartmentID, // Corrected property name to match CourseViewModel
                     DepartmentName = course.Department.DepartmentName
                 }
             });
         }
 
+
         [HttpPost]
-        public JsonResult UpdateCourse([FromForm] Course course)
+        public JsonResult UpdateCourse([FromForm] CourseViewModel course)
         {
             if (ModelState.IsValid)
             {
@@ -70,13 +80,19 @@ namespace MohiuddinCoreMasterDetailCrud.Controllers
                 if (existingCourse != null)
                 {
                     existingCourse.CourseName = course.CourseName;
+                    existingCourse.DepartmentID = course.DepartmentID; 
                     _context.SaveChanges();
                     return Json(new { success = true });
                 }
-                return Json(new { success = false, message = "Course not found" });
+                else
+                {
+                    
+                    return Json(new { success = false, message = "Course not found" });
+                }
             }
             return Json(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
         }
+
 
         [HttpPost]
         public JsonResult DeleteCourse(int id)

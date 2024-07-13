@@ -1,6 +1,5 @@
 ﻿$(document).ready(function () {
     GetCourses();
-    GetDepartments();
 });
 
 $('#addCourseBtn').click(function () {
@@ -8,23 +7,23 @@ $('#addCourseBtn').click(function () {
     $('#save').css('display', 'block');
     $('#update').css('display', 'none');
     $('#CourseId').val(0);
+    GetDepartments();
     $('#CoursetModal').modal('show');
 });
 
 function Create() {
-    var formData = new FormData();
-    formData.append('CourseName', $('#CourseName').val());
-
+    var formData = new FormData($('#CourseForm')[0]);
     $.ajax({
         url: '/Courses/Insert',
         data: formData,
         type: 'POST',
         contentType: false,
-        processData: false, 
+        processData: false,
         success: function (response) {
             if (response.success) {
                 GetCourses();
                 toastr.success('Course Inserted successfully');
+                $('#CourseForm')[0].reset();
                 $('#CoursetModal').modal('hide');
             } else {
                 toastr.error('Error: ' + response.errors.join(', '));
@@ -45,8 +44,10 @@ function Edit(id) {
             if (response.success) {
                 $('#CourseId').val(response.data.courseId);
                 $('#CourseName').val(response.data.courseName);
-                $('#DepartmentID').val(response.data.departmentId); // Assuming you have a hidden input for DepartmentId
-                $('#DepartmentName').val(response.data.departmentName); // Assuming you have an input for displaying DepartmentName
+
+                GetDepartments(function () {
+                    $('#DepartmentID').val(response.data.departmentID); 
+                });
 
                 $('#CoursetModalLabel').text("Edit Course");
                 $('#save').css('display', 'none');
@@ -62,12 +63,8 @@ function Edit(id) {
     });
 }
 
-
 function Update() {
-    var formData = new FormData();
-    formData.append('CourseId', $('#CourseId').val());
-    formData.append('CourseName', $('#CourseName').val());
-
+    var formData = new FormData($('#CourseForm')[0]);
     $.ajax({
         url: '/Courses/UpdateCourse',
         data: formData,
@@ -78,6 +75,7 @@ function Update() {
             if (response.success) {
                 GetCourses();
                 toastr.success('Course Updated successfully');
+                $('#CourseForm')[0].reset();
                 $('#CoursetModal').modal('hide');
             } else {
                 toastr.error('Error: ' + (response.errors ? response.errors.join(', ') : response.message));
@@ -88,6 +86,7 @@ function Update() {
         }
     });
 }
+
 function Delete(id) {
     Swal.fire({
         title: 'Are you sure?',
@@ -170,8 +169,7 @@ function GetCourses() {
     });
 }
 
-
-function GetDepartments() {
+function GetDepartments(callback) {
     $.ajax({
         url: '/Courses/GetDepartments',
         type: 'GET',
@@ -183,6 +181,10 @@ function GetDepartments() {
             $.each(response, function (index, item) {
                 dropdown.append($('<option>').val(item.departmentID).text(item.departmentName));
             });
+
+            if (callback) {
+                callback();
+            }
         },
         error: function () {
             toastr.error('Unable to fetch departments.');

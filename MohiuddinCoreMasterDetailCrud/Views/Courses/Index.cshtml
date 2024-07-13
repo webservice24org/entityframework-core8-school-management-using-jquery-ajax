@@ -1,4 +1,4 @@
-﻿@model MohiuddinCoreMasterDetailCrud.Models.Course
+﻿@model MohiuddinCoreMasterDetailCrud.Models.ViewModels.CourseViewModel
 
 @{
     ViewData["Title"] = "Courses";
@@ -33,18 +33,20 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <input type="hidden" id="CourseId" value="0" />
-                <div class="mb-2">
-                    <label for="CourseName" class="mb-1">Course Name</label>
-                    <input type="text" id="CourseName" class="form-control" placeholder="Course Name" />
-                </div>
-                <div class="mb-2">
-                    <label for="DepartmentID" class="mb-1">Department</label>
-                    <select id="DepartmentID" class="form-control">
-                        <option value="">Select Department</option>
-                        
-                    </select>
-                </div>
+                <form id="CourseForm">
+                    <input type="hidden" asp-for="CourseId" />
+                    <div class="form-group mb-2">
+                        <label asp-for="CourseName" class="control-label mb-1">Course Name</label>
+                        <input asp-for="CourseName" class="form-control" placeholder="Course Name" />
+                    </div>
+                    <div class="form-group mb-2">
+                        <label asp-for="DepartmentID" class="control-label mb-1"></label>
+                        <select class="form-control" asp-for="DepartmentID" id="DepartmentID">
+                            <option value="0">---Select Department---</option>
+                        </select>
+                        <span asp-validation-for="DepartmentID" class="text-danger"></span>
+                    </div>
+                </form>
             </div>
 
             <div class="modal-footer">

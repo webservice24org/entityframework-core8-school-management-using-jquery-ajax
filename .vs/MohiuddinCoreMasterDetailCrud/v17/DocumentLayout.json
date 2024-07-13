@@ -3,14 +3,6 @@
   "WorkspaceRootPath": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{803D4E7F-E65F-4FB8-A340-22F7F69FD30C}|MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj|g:\\mvc_core\\mohiuddincoremasterdetailcrud\\mohiuddincoremasterdetailcrud\\mohiuddincoremasterdetailcrud.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{803D4E7F-E65F-4FB8-A340-22F7F69FD30C}|MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj|solutionrelative:mohiuddincoremasterdetailcrud\\mohiuddincoremasterdetailcrud.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{803D4E7F-E65F-4FB8-A340-22F7F69FD30C}|MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj|g:\\mvc_core\\mohiuddincoremasterdetailcrud\\mohiuddincoremasterdetailcrud\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{803D4E7F-E65F-4FB8-A340-22F7F69FD30C}|MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj|solutionrelative:mohiuddincoremasterdetailcrud\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{803D4E7F-E65F-4FB8-A340-22F7F69FD30C}|MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj|g:\\mvc_core\\mohiuddincoremasterdetailcrud\\mohiuddincoremasterdetailcrud\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{803D4E7F-E65F-4FB8-A340-22F7F69FD30C}|MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj|solutionrelative:mohiuddincoremasterdetailcrud\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
@@ -19,8 +11,16 @@
       "RelativeMoniker": "D:0:0:{803D4E7F-E65F-4FB8-A340-22F7F69FD30C}|MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj|solutionrelative:mohiuddincoremasterdetailcrud\\views\\courses\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{803D4E7F-E65F-4FB8-A340-22F7F69FD30C}|MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj|g:\\mvc_core\\mohiuddincoremasterdetailcrud\\mohiuddincoremasterdetailcrud\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{803D4E7F-E65F-4FB8-A340-22F7F69FD30C}|MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj|solutionrelative:mohiuddincoremasterdetailcrud\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{803D4E7F-E65F-4FB8-A340-22F7F69FD30C}|MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj|g:\\mvc_core\\mohiuddincoremasterdetailcrud\\mohiuddincoremasterdetailcrud\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{803D4E7F-E65F-4FB8-A340-22F7F69FD30C}|MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj|solutionrelative:mohiuddincoremasterdetailcrud\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{803D4E7F-E65F-4FB8-A340-22F7F69FD30C}|MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj|g:\\mvc_core\\mohiuddincoremasterdetailcrud\\mohiuddincoremasterdetailcrud\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{803D4E7F-E65F-4FB8-A340-22F7F69FD30C}|MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj|solutionrelative:mohiuddincoremasterdetailcrud\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{803D4E7F-E65F-4FB8-A340-22F7F69FD30C}|MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj|g:\\mvc_core\\mohiuddincoremasterdetailcrud\\mohiuddincoremasterdetailcrud\\views\\students\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{803D4E7F-E65F-4FB8-A340-22F7F69FD30C}|MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj|solutionrelative:mohiuddincoremasterdetailcrud\\views\\students\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{803D4E7F-E65F-4FB8-A340-22F7F69FD30C}|MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj|g:\\mvc_core\\mohiuddincoremasterdetailcrud\\mohiuddincoremasterdetailcrud\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,69 +34,68 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MohiuddinCoreMasterDetailCrud",
-              "DocumentMoniker": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj",
-              "RelativeDocumentMoniker": "MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj",
-              "ToolTip": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj",
-              "RelativeToolTip": "MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA4AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-07-11T07:56:00.51Z",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\Views\\Students\\Index.cshtml",
+              "RelativeDocumentMoniker": "MohiuddinCoreMasterDetailCrud\\Views\\Students\\Index.cshtml",
+              "ToolTip": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\Views\\Students\\Index.cshtml",
+              "RelativeToolTip": "MohiuddinCoreMasterDetailCrud\\Views\\Students\\Index.cshtml",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAAADsAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-13T05:33:41.853Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "MohiuddinCoreMasterDetailCrud\\Controllers\\HomeController.cs",
+              "ToolTip": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "MohiuddinCoreMasterDetailCrud\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-13T05:09:52.22Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "site.js",
               "DocumentMoniker": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\js\\site.js",
               "RelativeDocumentMoniker": "MohiuddinCoreMasterDetailCrud\\wwwroot\\js\\site.js",
               "ToolTip": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\js\\site.js",
               "RelativeToolTip": "MohiuddinCoreMasterDetailCrud\\wwwroot\\js\\site.js",
-              "ViewState": "AQIAACsAAAAAAAAAAAA1wC8AAAAgAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADAAAABIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-07-11T07:38:19.895Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\Views\\Courses\\Index.cshtml",
               "RelativeDocumentMoniker": "MohiuddinCoreMasterDetailCrud\\Views\\Courses\\Index.cshtml",
               "ToolTip": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\Views\\Courses\\Index.cshtml",
               "RelativeToolTip": "MohiuddinCoreMasterDetailCrud\\Views\\Courses\\Index.cshtml",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAACwAAAAYAAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAACgAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-07-11T07:37:52.885Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Course.cs",
-              "DocumentMoniker": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\Models\\Course.cs",
-              "RelativeDocumentMoniker": "MohiuddinCoreMasterDetailCrud\\Models\\Course.cs",
-              "ToolTip": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\Models\\Course.cs",
-              "RelativeToolTip": "MohiuddinCoreMasterDetailCrud\\Models\\Course.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAQwBAAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T07:34:56.592Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CoursesController.cs",
               "DocumentMoniker": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\Controllers\\CoursesController.cs",
               "RelativeDocumentMoniker": "MohiuddinCoreMasterDetailCrud\\Controllers\\CoursesController.cs",
               "ToolTip": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\Controllers\\CoursesController.cs",
               "RelativeToolTip": "MohiuddinCoreMasterDetailCrud\\Controllers\\CoursesController.cs",
-              "ViewState": "AQIAACIAAAAAAAAAAAAQwD0AAAAJAAAA",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAcwFIAAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-11T07:32:26.82Z",
               "EditorCaption": ""
@@ -111,8 +110,7 @@
               "RelativeToolTip": "MohiuddinCoreMasterDetailCrud\\Models\\Department.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T07:22:05.887Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-11T07:22:05.887Z"
             }
           ]
         }
