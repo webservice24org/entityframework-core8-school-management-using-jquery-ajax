@@ -134,7 +134,6 @@ namespace MohiuddinCoreMasterDetailCrud.Controllers
             
         }
 
-
         [HttpPost]
         public JsonResult DeleteDepartment([FromForm] int id)
         {

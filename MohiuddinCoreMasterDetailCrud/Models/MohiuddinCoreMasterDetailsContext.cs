@@ -18,6 +18,7 @@ namespace MohiuddinCoreMasterDetailCrud.Models
         public virtual DbSet<Enrollment> Enrollments { get; set; }
         public virtual DbSet<Instructor> Instructors { get; set; }
         public virtual DbSet<OfficeAssignment> OfficeAssignments { get; set; }
+        public virtual DbSet<InstructorDetails> InstructorDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -102,6 +103,12 @@ namespace MohiuddinCoreMasterDetailCrud.Models
                 .WithMany(i => i.CourseInstructors)
                 .HasForeignKey(ci => ci.InstructorID)
                 .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Instructor>()
+            .HasOne(i => i.InstructorDetails)
+            .WithOne(d => d.Instructor)
+            .HasForeignKey<InstructorDetails>(d => d.InstructorID)
+            .OnDelete(DeleteBehavior.Cascade);
 
             OnModelCreatingPartial(modelBuilder);
         }

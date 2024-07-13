@@ -18,13 +18,17 @@ namespace MohiuddinCoreMasterDetailCrud.Models
         [DataType(DataType.Date)]
         public DateTime JoinDate { get; set; }
 
-        [StringLength(100)]
-        public string InstructorPicture { get; set; }
+        [Required]
+        [StringLength(15)]
+        public string Mobile { get; set; } // Added Mobile property
+
+        public virtual InstructorDetails InstructorDetails { get; set; } // Navigation property to InstructorDetails
 
         public virtual ICollection<CourseInstructor> CourseInstructors { get; set; }
         public virtual ICollection<Department> Departments { get; set; }
         public virtual OfficeAssignment OfficeAssignment { get; set; }
     }
+
 
 
 
