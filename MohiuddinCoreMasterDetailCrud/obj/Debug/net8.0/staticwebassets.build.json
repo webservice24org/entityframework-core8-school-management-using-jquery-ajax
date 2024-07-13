@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jqQT40bm76tmGVGps2P77jAtN+gjPgOBXFuqIzq6Z/Y=",
+  "Hash": "26/zijtV9EYvwi/fRqhk3G3ft9iy+f2f4cBQ+4dGVhI=",
   "Source": "MohiuddinCoreMasterDetailCrud",
   "BasePath": "_content/MohiuddinCoreMasterDetailCrud",
   "Mode": "Default",
@@ -509,6 +509,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\department.js"
+    },
+    {
+      "Identity": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\js\\Instructor.js",
+      "SourceId": "MohiuddinCoreMasterDetailCrud",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\",
+      "BasePath": "_content/MohiuddinCoreMasterDetailCrud",
+      "RelativePath": "js/Instructor.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Instructor.js"
     },
     {
       "Identity": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\js\\site.js",
