@@ -23,6 +23,7 @@ namespace MohiuddinCoreMasterDetailCrud.Models.ViewModels
         [Required(ErrorMessage = "Administrator is required")]
         [Display(Name = "Select Administrator")]
         public int InstructorID { get; set; }
+        public string InstructorName { get; set; }
     }
 
 

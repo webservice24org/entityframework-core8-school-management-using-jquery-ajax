@@ -28,4 +28,6 @@ namespace MohiuddinCoreMasterDetailCrud.Models
     }
 
 
+
+
 }

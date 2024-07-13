@@ -1,12 +1,20 @@
 ﻿$(document).ready(function () {
     loadDepartments();
-
+    
     $('#saveDepartment').click(function () {
-        saveDepartment();
+        saveDepartment(true); 
     });
+    $(document).on('click', '.editDepartment', function (event) {
+        event.preventDefault(); 
+
+        var departmentId = $(this).data('id');
+        getDepartment(departmentId); 
+    });
+
     $('#updateDepartment').click(function () {
-        saveDepartment();
+        saveDepartment(false); 
     });
+
 });
 
 $('#addDepartmentBtn').click(function () {
@@ -14,10 +22,9 @@ $('#addDepartmentBtn').click(function () {
     $('#saveDepartment').show();
     $('#updateDepartment').hide();
     $('#DepartmentModal').modal('show');
-    $('#DepartmentID').val(0);  // Set the hidden field for department ID to 0 for new records
+    $('#DepartmentID').val(0);  
     loadInstructors();
 });
-
 
 function getDepartment(id) {
     $.ajax({
@@ -26,13 +33,20 @@ function getDepartment(id) {
         data: { id: id },
         success: function (response) {
             if (response.success) {
-                // Populate your form with the department data
-                $('#DepartmentID').val(response.data.DepartmentID);
-                $('#DepartmentName').val(response.data.DepartmentName);
-                $('#Budget').val(response.data.Budget);
-                $('#StartDate').val(response.data.StartDate);
-                $('#InstructorID').val(response.data.InstructorID);
-                // Show your modal or form
+                
+                $('#DepartmentID').val(response.data.departmentID);
+                $('#DepartmentName').val(response.data.departmentName);
+                $('#Budget').val(response.data.budget);
+                var startDate = new Date(response.data.startDate);
+                var formattedDate = startDate.getFullYear() + '-' + ('0' + (startDate.getMonth() + 1)).slice(-2) + '-' + ('0' + startDate.getDate()).slice(-2);
+                $('#StartDate').val(formattedDate);
+                loadInstructors(function () {
+                    $('#InstructorID').val(response.data.instructorID);
+                });
+                $('#DepartmentModallLabel').text("Edit Department Information");
+                $('#saveDepartment').hide();
+                $('#updateDepartment').show();
+                $('#DepartmentModal').modal('show');
             } else {
                 toastr.error(response.message);
             }
@@ -43,12 +57,13 @@ function getDepartment(id) {
     });
 }
 
-function saveDepartment() {
+function saveDepartment(isCreate) {
     var formData = new FormData($('#DepartmentForm')[0]);
+    var url = isCreate ? '/Departments/CreateDepartment' : '/Departments/UpdateDepartment';
 
     $.ajax({
-        url: '/Departments/CreateDepartment',
-        type: 'POST',
+        url: url,
+        type: isCreate ? 'POST' : 'PUT',
         contentType: false,
         processData: false,
         data: formData,
@@ -56,7 +71,7 @@ function saveDepartment() {
             if (response.success) {
                 toastr.success(response.message);
                 $('#DepartmentForm')[0].reset();
-                $('#DepartmentModal').modal('hide');  // Hide the modal after saving
+                $('#DepartmentModal').modal('hide'); 
                 loadDepartments();
             } else {
                 toastr.error(response.message);
@@ -67,25 +82,58 @@ function saveDepartment() {
         }
     });
 }
-
-function deleteDepartment(id) {
-    $.ajax({
-        url: '/Departments/DeleteDepartment',
-        type: 'DELETE',
-        data: { id: id },
-        success: function (response) {
-            if (response.success) {
-                toastr.success(response.message);
-                loadDepartments();
-            } else {
-                toastr.error(response.message);
-            }
-        },
-        error: function () {
-            toastr.error('Unable to delete department.');
+$(document).on('click', '.deleteDepartment', function (event) {
+    event.preventDefault();
+    var departmentId = $(this).data('id');
+    Swal.fire({
+        title: 'Are you sure?',
+        text: 'You will not be able to recover this Department!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: '/Departments/DeleteDepartment',
+                type: 'POST',
+                data: { id: departmentId },
+                success: function (response) {
+                    if (response.success) {
+                        Swal.fire(
+                            'Deleted!',
+                            response.message,
+                            'success'
+                        ).then(() => {
+                            loadDepartments();
+                            toastr.warning("Department data Deleted!");
+                        });
+                    } else {
+                        Swal.fire(
+                            'Error!',
+                            response.message,
+                            'error'
+                        );
+                    }
+                },
+                error: function () {
+                    Swal.fire(
+                        'Error!',
+                        'Unable to delete Department.',
+                        'error'
+                    );
+                }
+            });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+            Swal.fire(
+                'Cancelled',
+                'Department deletion cancelled.',
+                'info'
+            );
         }
     });
-}
+});
 
 function loadDepartments() {
     $.ajax({
@@ -105,8 +153,8 @@ function loadDepartments() {
                     object += '<td>' + item.budget + '</td>';
                     object += '<td>' + new Date(item.startDate).toLocaleDateString() + '</td>';
                     object += '<td>' + item.instructorName + '</td>';
-                    object += '<td><a href="" class="btn btn-primary editDepartment" data-id="' + item.DepartmentID + '">Edit</a> ';
-                    object += '<a href="" class="btn btn-danger deleteDepartment" data-id="' + item.DepartmentID + '">Delete</a></td>';
+                    object += '<td><a href="#" class="btn btn-primary editDepartment" data-id="' + item.departmentID + '">Edit</a> ';
+                    object += '<a href="#" class="btn btn-danger deleteDepartment" data-id="' + item.departmentID + '">Delete</a></td>';
                     object += '</tr>';
                 });
                 object += '</tbody></table>';
@@ -125,7 +173,6 @@ function loadDepartments() {
         }
     });
 }
-
 
 function loadInstructors(callback) {
     $.ajax({

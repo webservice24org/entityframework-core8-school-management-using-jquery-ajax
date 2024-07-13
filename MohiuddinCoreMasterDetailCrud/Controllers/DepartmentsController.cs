@@ -46,41 +46,36 @@ namespace MohiuddinCoreMasterDetailCrud.Controllers
         }
 
 
-        //[HttpGet]
-        //public async Task<JsonResult> GetDepartment(int id)
-        //{
-        //    var department = await _context.Departments
-        //        .Include(d => d.Administrator)
-        //        .FirstOrDefaultAsync(d => d.DepartmentID == id);
+        [HttpGet]
+        public async Task<JsonResult> GetDepartment(int id)
+        {
+            var department = await _context.Departments
+                .Include(d => d.Administrator)
+                .FirstOrDefaultAsync(d => d.DepartmentID == id);
 
-        //    if (department == null)
-        //    {
-        //        return Json(new { success = false, message = "Department not found" });
-        //    }
+            if (department == null)
+            {
+                return Json(new { success = false, message = "Department not found" });
+            }
 
-        //    var departmentViewModel = new DepartmentViewModel
-        //    {
-        //        DepartmentID = department.DepartmentID,
-        //        DepartmentName = department.DepartmentName,
-        //        Budget = department.Budget,
-        //        StartDate = department.StartDate,
-        //        InstructorID = department.InstructorID,
-        //        InstructorName = department.Administrator.FirstName + " " + department.Administrator.LastName
-        //    };
+            var departmentViewModel = new DepartmentViewModel
+            {
+                DepartmentID = department.DepartmentID,
+                DepartmentName = department.DepartmentName,
+                Budget = department.Budget,
+                StartDate = department.StartDate,
+                InstructorID = department.InstructorID,
+                InstructorName = department.Administrator.FirstName + " " + department.Administrator.LastName
+            };
 
-        //    return Json(new { success = true, data = departmentViewModel });
-        //}
+            return Json(new { success = true, data = departmentViewModel });
+        }
 
         [HttpPost]
         public JsonResult CreateDepartment([FromForm] DepartmentViewModel model)
         {
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    return Json(new { success = false, message = "Invalid data." });
-                }
-
                 var department = new Department
                 {
                     DepartmentName = model.DepartmentName,
@@ -115,50 +110,46 @@ namespace MohiuddinCoreMasterDetailCrud.Controllers
             return message;
         }
 
-
-
-
         [HttpPut]
-        public async Task<JsonResult> UpdateDepartment([FromBody] DepartmentViewModel model)
+        public async Task<JsonResult> UpdateDepartment([FromForm] DepartmentViewModel model)
         {
-            if (ModelState.IsValid)
-            {
-                var department = await _context.Departments.FindAsync(model.DepartmentID);
-
-                if (department == null)
-                {
-                    return Json(new { success = false, message = "Department not found" });
-                }
-
-                department.DepartmentName = model.DepartmentName;
-                department.Budget = model.Budget;
-                department.StartDate = model.StartDate;
-                department.InstructorID = model.InstructorID;
-
-                _context.Departments.Update(department);
-                await _context.SaveChangesAsync();
-
-                return Json(new { success = true, message = "Department updated successfully" });
-            }
-
-            return Json(new { success = false, message = "Invalid model state" });
-        }
-
-        [HttpDelete]
-        public async Task<JsonResult> DeleteDepartment(int id)
-        {
-            var department = await _context.Departments.FindAsync(id);
+            
+            var department = await _context.Departments.FindAsync(model.DepartmentID);
 
             if (department == null)
             {
                 return Json(new { success = false, message = "Department not found" });
             }
 
-            _context.Departments.Remove(department);
+            department.DepartmentID = model.DepartmentID;
+            department.DepartmentName = model.DepartmentName;
+            department.Budget = model.Budget;
+            department.StartDate = model.StartDate;
+            department.InstructorID = model.InstructorID;
+
+            _context.Departments.Update(department);
             await _context.SaveChangesAsync();
 
-            return Json(new { success = true, message = "Department deleted successfully" });
+            return Json(new { success = true, message = "Department updated successfully" });
+            
         }
+
+
+        [HttpPost]
+        public JsonResult DeleteDepartment([FromForm] int id)
+        {
+            var department = _context.Departments.FirstOrDefault(c => c.DepartmentID == id);
+            if (department == null)
+            {
+                return Json(new { success = false, message = "Department not found" });
+            }
+
+            _context.Departments.Remove(department);
+            _context.SaveChanges();
+
+            return Json(new { success = true });
+        }
+
 
         [HttpGet]
         public JsonResult GetInstructors()

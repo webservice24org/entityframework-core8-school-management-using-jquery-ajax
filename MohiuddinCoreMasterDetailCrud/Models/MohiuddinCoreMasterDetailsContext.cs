@@ -54,7 +54,7 @@ namespace MohiuddinCoreMasterDetailCrud.Models
 
             modelBuilder.Entity<Department>()
                 .HasOne(d => d.Administrator)
-                .WithMany()
+                .WithMany(i => i.Departments)
                 .HasForeignKey(d => d.InstructorID)
                 .OnDelete(DeleteBehavior.NoAction);
 
@@ -108,5 +108,6 @@ namespace MohiuddinCoreMasterDetailCrud.Models
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
+
 
 }

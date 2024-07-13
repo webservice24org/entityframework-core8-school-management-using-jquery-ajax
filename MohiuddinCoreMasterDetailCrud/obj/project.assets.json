@@ -7848,23 +7848,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HP\\.nuget\\packages\\": {},
+    "C:\\Users\\SCSL Lab 2\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj",
+      "projectUniqueName": "D:\\Mohiuddin-1280860\\MVC_CORE\\Projects\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj",
       "projectName": "MohiuddinCoreMasterDetailCrud",
-      "projectPath": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj",
-      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\obj\\",
+      "projectPath": "D:\\Mohiuddin-1280860\\MVC_CORE\\Projects\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud.csproj",
+      "packagesPath": "C:\\Users\\SCSL Lab 2\\.nuget\\packages\\",
+      "outputPath": "D:\\Mohiuddin-1280860\\MVC_CORE\\Projects\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\SCSL Lab 2\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
