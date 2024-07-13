@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DXi+Dhh1H6KeOxof6p1RlZN5xuql1UuKeyZ906R/P4Y=",
+  "Hash": "jqQT40bm76tmGVGps2P77jAtN+gjPgOBXFuqIzq6Z/Y=",
   "Source": "MohiuddinCoreMasterDetailCrud",
   "BasePath": "_content/MohiuddinCoreMasterDetailCrud",
   "Mode": "Default",
@@ -490,6 +490,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\noimage.jpg"
+    },
+    {
+      "Identity": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\js\\department.js",
+      "SourceId": "MohiuddinCoreMasterDetailCrud",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\",
+      "BasePath": "_content/MohiuddinCoreMasterDetailCrud",
+      "RelativePath": "js/department.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\department.js"
     },
     {
       "Identity": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\js\\site.js",

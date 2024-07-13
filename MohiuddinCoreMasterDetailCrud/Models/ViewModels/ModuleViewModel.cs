@@ -1,4 +1,5 @@
-﻿namespace MohiuddinCoreMasterDetailCrud.Models.ViewModels
+﻿
+namespace MohiuddinCoreMasterDetailCrud.Models.ViewModels
 {
     public class ModuleViewModel
     {

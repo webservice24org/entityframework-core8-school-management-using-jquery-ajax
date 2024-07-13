@@ -17,6 +17,7 @@ namespace MohiuddinCoreMasterDetailCrud.Models
         [StringLength(100)]
         public string InstructorPicture { get; set; }
         public virtual ICollection<CourseInstructor> CourseInstructors { get; set; }
+        public virtual ICollection<Department> Departments { get; set; }
         public virtual OfficeAssignment OfficeAssignment { get; set; }
     }
 

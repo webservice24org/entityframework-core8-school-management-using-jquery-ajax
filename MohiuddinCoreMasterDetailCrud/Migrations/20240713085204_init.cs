@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MohiuddinCoreMasterDetailCrud.Migrations
 {
     /// <inheritdoc />
-    public partial class coremasterdetails : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -36,7 +36,8 @@ namespace MohiuddinCoreMasterDetailCrud.Migrations
                     DepartmentName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Budget = table.Column<decimal>(type: "money", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    InstructorID = table.Column<int>(type: "int", nullable: false)
+                    InstructorID = table.Column<int>(type: "int", nullable: false),
+                    InstructorID1 = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -44,6 +45,11 @@ namespace MohiuddinCoreMasterDetailCrud.Migrations
                     table.ForeignKey(
                         name: "FK_Departments_Instructors_InstructorID",
                         column: x => x.InstructorID,
+                        principalTable: "Instructors",
+                        principalColumn: "InstructorID");
+                    table.ForeignKey(
+                        name: "FK_Departments_Instructors_InstructorID1",
+                        column: x => x.InstructorID1,
                         principalTable: "Instructors",
                         principalColumn: "InstructorID");
                 });
@@ -189,6 +195,11 @@ namespace MohiuddinCoreMasterDetailCrud.Migrations
                 name: "IX_Departments_InstructorID",
                 table: "Departments",
                 column: "InstructorID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Departments_InstructorID1",
+                table: "Departments",
+                column: "InstructorID1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Enrollments_CourseId",

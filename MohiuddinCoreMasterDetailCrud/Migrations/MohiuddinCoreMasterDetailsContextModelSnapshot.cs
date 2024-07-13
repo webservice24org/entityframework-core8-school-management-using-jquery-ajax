@@ -84,12 +84,17 @@ namespace MohiuddinCoreMasterDetailCrud.Migrations
                     b.Property<int>("InstructorID")
                         .HasColumnType("int");
 
+                    b.Property<int?>("InstructorID1")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("DepartmentID");
 
                     b.HasIndex("InstructorID");
+
+                    b.HasIndex("InstructorID1");
 
                     b.ToTable("Departments");
                 });
@@ -271,6 +276,10 @@ namespace MohiuddinCoreMasterDetailCrud.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
+                    b.HasOne("MohiuddinCoreMasterDetailCrud.Models.Instructor", null)
+                        .WithMany("Departments")
+                        .HasForeignKey("InstructorID1");
+
                     b.Navigation("Administrator");
                 });
 
@@ -345,6 +354,8 @@ namespace MohiuddinCoreMasterDetailCrud.Migrations
             modelBuilder.Entity("MohiuddinCoreMasterDetailCrud.Models.Instructor", b =>
                 {
                     b.Navigation("CourseInstructors");
+
+                    b.Navigation("Departments");
 
                     b.Navigation("OfficeAssignment")
                         .IsRequired();

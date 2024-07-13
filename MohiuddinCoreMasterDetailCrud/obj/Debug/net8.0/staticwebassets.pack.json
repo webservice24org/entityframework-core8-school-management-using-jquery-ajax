@@ -97,6 +97,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\js\\department.js",
+      "PackagePath": "staticwebassets\\js\\department.js"
+    },
+    {
       "Id": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
