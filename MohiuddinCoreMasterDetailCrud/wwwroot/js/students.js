@@ -261,7 +261,7 @@
     function saveStudent() {
         var formData = new FormData($('#studentForm')[0]);
         $.ajax({
-            url: $('#StudentId').val() == '0' ? '/Students/CreateStudent' : '/Students/UpdateStudent',
+            url: $('#StudentId').val() == '0' ? '/Students/InsertStudent' : '/Students/UpdateStudent',
             type: 'POST',
             data: formData,
             contentType: false,

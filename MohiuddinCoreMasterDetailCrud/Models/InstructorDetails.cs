@@ -23,7 +23,7 @@ namespace MohiuddinCoreMasterDetailCrud.Models
         [StringLength(255)]
         public string InstructorPicture { get; set; }
 
-        public virtual Instructor Instructor { get; set; } // Navigation property to Instructor
+        public virtual Instructor Instructor { get; set; } 
     }
 
 }

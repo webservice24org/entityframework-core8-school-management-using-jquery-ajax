@@ -17,6 +17,7 @@ namespace MohiuddinCoreMasterDetailCrud.Models
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Enrollment> Enrollments { get; set; }
         public virtual DbSet<Instructor> Instructors { get; set; }
+        public virtual DbSet<CourseInstructor> CourseInstructor { get; set; }
         public virtual DbSet<OfficeAssignment> OfficeAssignments { get; set; }
         public virtual DbSet<InstructorDetails> InstructorDetails { get; set; }
 

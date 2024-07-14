@@ -26,25 +26,24 @@ namespace MohiuddinCoreMasterDetailCrud.Controllers
 
         
         [HttpPost]
-public JsonResult Insert([FromForm] CourseViewModel courseViewModel)
-{
-    if (ModelState.IsValid)
-    {
-        var course = new Course
+        public JsonResult Insert([FromForm] CourseViewModel courseViewModel)
         {
-            CourseName = courseViewModel.CourseName,
-            DepartmentID = courseViewModel.DepartmentID
-        };
+            if (ModelState.IsValid)
+            {
+                var course = new Course
+                {
+                    CourseName = courseViewModel.CourseName,
+                    DepartmentID = courseViewModel.DepartmentID
+                };
 
-        _context.Add(course);
-        _context.SaveChanges();
-        return Json(new { success = true });
-    }
+                _context.Add(course);
+                _context.SaveChanges();
+                return Json(new { success = true });
+            }
 
-    return Json(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
-}
-
-
+             return Json(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
+        }
+        
         [HttpGet]
         public JsonResult EditCourse(int id)
         {
@@ -64,7 +63,7 @@ public JsonResult Insert([FromForm] CourseViewModel courseViewModel)
                 {
                     course.CourseId,
                     course.CourseName,
-                    DepartmentID = course.DepartmentID, // Corrected property name to match CourseViewModel
+                    DepartmentID = course.DepartmentID, 
                     DepartmentName = course.Department.DepartmentName
                 }
             });
@@ -113,11 +112,11 @@ public JsonResult Insert([FromForm] CourseViewModel courseViewModel)
         public JsonResult GetCourses()
         {
             var courses = _context.Courses
-                .Include(c => c.Department)  // Include Department for joining
+                .Include(c => c.Department)  
                 .Select(c => new {
                     c.CourseId,
                     c.CourseName,
-                    DepartmentName = c.Department.DepartmentName // Include DepartmentName
+                    DepartmentName = c.Department.DepartmentName 
                 })
                 .ToList();
 

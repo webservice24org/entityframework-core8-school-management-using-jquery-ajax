@@ -6,6 +6,43 @@
         $('#instructorModal').modal('show');
         loadCourses();
     });
+
+    $('#saveInstructor').click(function () {
+        saveInstructor();
+    });
+    function saveInstructor() {
+        var formData = new FormData($('#instructorForm')[0]);
+
+        var selectedCourseIDs = [];
+        $('#instructorModal input[type="checkbox"]:checked').each(function () {
+            selectedCourseIDs.push($(this).val());
+        });
+
+        // Append the selected course IDs to formData
+        formData.append('SelectedCourseIDs', JSON.stringify(selectedCourseIDs));
+
+        $.ajax({
+            url: '/Instructors/InsertInstructor',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                if (response.success) {
+                    toastr.success(response.message);
+                    // Additional actions on success
+                } else {
+                    toastr.error(response.message);
+                }
+            },
+            error: function () {
+                toastr.error('Error while saving instructor.');
+            }
+        });
+    }
+
+
+
     function loadCourses() {
         $.ajax({
             url: '/Instructors/GetAllCourses',

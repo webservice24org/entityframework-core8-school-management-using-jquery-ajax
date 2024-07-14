@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "26/zijtV9EYvwi/fRqhk3G3ft9iy+f2f4cBQ+4dGVhI=",
+  "Hash": "jwiH7G2JE7di2+lhF59TEkB68UKzii+Hu97VaG1KSkw=",
   "Source": "MohiuddinCoreMasterDetailCrud",
   "BasePath": "_content/MohiuddinCoreMasterDetailCrud",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\16c2417b-55a9-4c73-bd5c-6875d3073448_pexels-tony-boyd-513947829-16804277.jpg"
+    },
+    {
+      "Identity": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\1ab1a124-fd33-40f4-b03a-ec216b3f7611_cloth.jpg",
+      "SourceId": "MohiuddinCoreMasterDetailCrud",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\",
+      "BasePath": "_content/MohiuddinCoreMasterDetailCrud",
+      "RelativePath": "Images/1ab1a124-fd33-40f4-b03a-ec216b3f7611_cloth.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\1ab1a124-fd33-40f4-b03a-ec216b3f7611_cloth.jpg"
     },
     {
       "Identity": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\317881ab-7ee8-4ada-bac3-bd51f153271e_images.jpg",
@@ -226,6 +245,25 @@
       "OriginalItemSpec": "wwwroot\\Images\\58b888c7-cbc1-42aa-9914-95d26410a731_pexels-tony-boyd-513947829-16804277.jpg"
     },
     {
+      "Identity": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\5d656212-434f-4386-9878-7bec008456b0_shirt.jpg",
+      "SourceId": "MohiuddinCoreMasterDetailCrud",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\",
+      "BasePath": "_content/MohiuddinCoreMasterDetailCrud",
+      "RelativePath": "Images/5d656212-434f-4386-9878-7bec008456b0_shirt.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\5d656212-434f-4386-9878-7bec008456b0_shirt.jpg"
+    },
+    {
       "Identity": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\86b5d0c2-e570-45a5-8b2a-c98349c5d320_OIP (1).jpg",
       "SourceId": "MohiuddinCoreMasterDetailCrud",
       "SourceType": "Discovered",
@@ -262,6 +300,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\87e1a74a-4075-440a-9e76-6b77f66e1793_R.jpg"
+    },
+    {
+      "Identity": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\96ee8564-56bb-417f-aad5-9f55e320c737_arl-logo.png",
+      "SourceId": "MohiuddinCoreMasterDetailCrud",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\",
+      "BasePath": "_content/MohiuddinCoreMasterDetailCrud",
+      "RelativePath": "Images/96ee8564-56bb-417f-aad5-9f55e320c737_arl-logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\96ee8564-56bb-417f-aad5-9f55e320c737_arl-logo.png"
     },
     {
       "Identity": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\987ffb47-5cbc-4852-ad09-acfa07d7f77e_pexels-qjpioneer-708777.jpg",
@@ -338,6 +395,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\c2a58b26-3574-4b99-8657-e3909b8fb0e6_pexels-khanh-duy-tr-ng-657678159-21852309.jpg"
+    },
+    {
+      "Identity": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\c5c5f782-ea2a-44e0-a2b7-c3fd4d572326_cloth.jpg",
+      "SourceId": "MohiuddinCoreMasterDetailCrud",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\",
+      "BasePath": "_content/MohiuddinCoreMasterDetailCrud",
+      "RelativePath": "Images/c5c5f782-ea2a-44e0-a2b7-c3fd4d572326_cloth.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\c5c5f782-ea2a-44e0-a2b7-c3fd4d572326_cloth.jpg"
     },
     {
       "Identity": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\d020e68a-4f60-4a17-826d-50b394e76f06_pexels-quang-nguyen-vinh-222549-2135677.jpg",
