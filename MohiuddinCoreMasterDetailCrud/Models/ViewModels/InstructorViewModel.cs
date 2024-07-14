@@ -9,12 +9,11 @@ namespace MohiuddinCoreMasterDetailCrud.Models.ViewModels
 {
     public class InstructorViewModel
     {
-
         public int InstructorID { get; set; }
 
         [Required]
         [StringLength(50)]
-        [Display(Name ="First Name")]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
         [Required]
@@ -48,7 +47,6 @@ namespace MohiuddinCoreMasterDetailCrud.Models.ViewModels
         public decimal? Salary { get; set; }
 
         [StringLength(255)]
-    
         public string InstructorPicture { get; set; }
 
         [Display(Name = "Instructor's Picture")]
@@ -59,7 +57,9 @@ namespace MohiuddinCoreMasterDetailCrud.Models.ViewModels
 
         public OfficeAssignment OfficeAssignment { get; set; }
 
-        public IEnumerable<int> SelectedCourseIDs { get; set; }
+        public List<int> SelectedCourseIDs { get; set; }
         public IEnumerable<Course> AllCourses { get; set; }
     }
+
+
 }

@@ -738,6 +738,7 @@ G:\MVC_Core\MohiuddinCoreMasterDetailCrud\MohiuddinCoreMasterDetailCrud\obj\Debu
 G:\MVC_Core\MohiuddinCoreMasterDetailCrud\MohiuddinCoreMasterDetailCrud\obj\Debug\net8.0\MohiuddinCoreMasterDetailCrud.MvcApplicationPartsAssemblyInfo.cache
 G:\MVC_Core\MohiuddinCoreMasterDetailCrud\MohiuddinCoreMasterDetailCrud\obj\Debug\net8.0\MohiuddinCoreMasterDetailCrud.RazorAssemblyInfo.cache
 G:\MVC_Core\MohiuddinCoreMasterDetailCrud\MohiuddinCoreMasterDetailCrud\obj\Debug\net8.0\MohiuddinCoreMasterDetailCrud.RazorAssemblyInfo.cs
+G:\MVC_Core\MohiuddinCoreMasterDetailCrud\MohiuddinCoreMasterDetailCrud\obj\Debug\net8.0\MohiuddinCoreMasterDetailCrud.sourcelink.json
 G:\MVC_Core\MohiuddinCoreMasterDetailCrud\MohiuddinCoreMasterDetailCrud\obj\Debug\net8.0\staticwebassets.build.json
 G:\MVC_Core\MohiuddinCoreMasterDetailCrud\MohiuddinCoreMasterDetailCrud\obj\Debug\net8.0\staticwebassets.development.json
 G:\MVC_Core\MohiuddinCoreMasterDetailCrud\MohiuddinCoreMasterDetailCrud\obj\Debug\net8.0\staticwebassets\msbuild.MohiuddinCoreMasterDetailCrud.Microsoft.AspNetCore.StaticWebAssets.props
@@ -754,4 +755,3 @@ G:\MVC_Core\MohiuddinCoreMasterDetailCrud\MohiuddinCoreMasterDetailCrud\obj\Debu
 G:\MVC_Core\MohiuddinCoreMasterDetailCrud\MohiuddinCoreMasterDetailCrud\obj\Debug\net8.0\MohiuddinCoreMasterDetailCrud.pdb
 G:\MVC_Core\MohiuddinCoreMasterDetailCrud\MohiuddinCoreMasterDetailCrud\obj\Debug\net8.0\MohiuddinCoreMasterDetailCrud.genruntimeconfig.cache
 G:\MVC_Core\MohiuddinCoreMasterDetailCrud\MohiuddinCoreMasterDetailCrud\obj\Debug\net8.0\ref\MohiuddinCoreMasterDetailCrud.dll
-G:\MVC_Core\MohiuddinCoreMasterDetailCrud\MohiuddinCoreMasterDetailCrud\obj\Debug\net8.0\MohiuddinCoreMasterDetailCrud.sourcelink.json

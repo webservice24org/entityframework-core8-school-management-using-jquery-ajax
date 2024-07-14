@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\Images\\16c2417b-55a9-4c73-bd5c-6875d3073448_pexels-tony-boyd-513947829-16804277.jpg"
     },
     {
+      "Id": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\1a2aaee2-6177-4c5f-8092-9fa17a2104d4_pant.jpg",
+      "PackagePath": "staticwebassets\\Images\\1a2aaee2-6177-4c5f-8092-9fa17a2104d4_pant.jpg"
+    },
+    {
       "Id": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\1ab1a124-fd33-40f4-b03a-ec216b3f7611_cloth.jpg",
       "PackagePath": "staticwebassets\\Images\\1ab1a124-fd33-40f4-b03a-ec216b3f7611_cloth.jpg"
     },
@@ -41,6 +45,10 @@
       "PackagePath": "staticwebassets\\Images\\5d656212-434f-4386-9878-7bec008456b0_shirt.jpg"
     },
     {
+      "Id": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\697e2069-5853-4da1-8b74-0dc484d9e279_cloth.jpg",
+      "PackagePath": "staticwebassets\\Images\\697e2069-5853-4da1-8b74-0dc484d9e279_cloth.jpg"
+    },
+    {
       "Id": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\86b5d0c2-e570-45a5-8b2a-c98349c5d320_OIP (1).jpg",
       "PackagePath": "staticwebassets\\Images\\86b5d0c2-e570-45a5-8b2a-c98349c5d320_OIP (1).jpg"
     },
@@ -49,12 +57,20 @@
       "PackagePath": "staticwebassets\\Images\\87e1a74a-4075-440a-9e76-6b77f66e1793_R.jpg"
     },
     {
+      "Id": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\918e5a5a-2a30-497c-aebe-9abdff5eff89_arl.png",
+      "PackagePath": "staticwebassets\\Images\\918e5a5a-2a30-497c-aebe-9abdff5eff89_arl.png"
+    },
+    {
       "Id": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\96ee8564-56bb-417f-aad5-9f55e320c737_arl-logo.png",
       "PackagePath": "staticwebassets\\Images\\96ee8564-56bb-417f-aad5-9f55e320c737_arl-logo.png"
     },
     {
       "Id": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\987ffb47-5cbc-4852-ad09-acfa07d7f77e_pexels-qjpioneer-708777.jpg",
       "PackagePath": "staticwebassets\\Images\\987ffb47-5cbc-4852-ad09-acfa07d7f77e_pexels-qjpioneer-708777.jpg"
+    },
+    {
+      "Id": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\a6a7fa8e-7f39-4eb4-be41-5a55faf9e734_pant.jpg",
+      "PackagePath": "staticwebassets\\Images\\a6a7fa8e-7f39-4eb4-be41-5a55faf9e734_pant.jpg"
     },
     {
       "Id": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\aab3af32-497f-45c2-aafd-38fec0e6fb03_Black and Red Professional Business Youtube Thumbnail.png",
@@ -75,6 +91,10 @@
     {
       "Id": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\d020e68a-4f60-4a17-826d-50b394e76f06_pexels-quang-nguyen-vinh-222549-2135677.jpg",
       "PackagePath": "staticwebassets\\Images\\d020e68a-4f60-4a17-826d-50b394e76f06_pexels-quang-nguyen-vinh-222549-2135677.jpg"
+    },
+    {
+      "Id": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\d7c1a74c-4b66-4fbc-972f-30dc236d33d8_Screenshot 2024-07-14 201032.png",
+      "PackagePath": "staticwebassets\\Images\\d7c1a74c-4b66-4fbc-972f-30dc236d33d8_Screenshot 2024-07-14 201032.png"
     },
     {
       "Id": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\d9e21c2e-03ae-40b6-a71d-6abac09d0772_41C2Vn2M5NL.jpg",

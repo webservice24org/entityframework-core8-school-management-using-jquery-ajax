@@ -61,13 +61,13 @@ namespace MohiuddinCoreMasterDetailCrud.Models
                 .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Instructor>()
-                .HasMany(i => i.CourseInstructors)
+                .HasMany(i => i.CourseInstructor)
                 .WithOne(ci => ci.Instructor)
                 .HasForeignKey(ci => ci.InstructorID)
                 .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Course>()
-                .HasMany(c => c.CourseInstructors)
+                .HasMany(c => c.CourseInstructor)
                 .WithOne(ci => ci.Course)
                 .HasForeignKey(ci => ci.CourseId)
                 .OnDelete(DeleteBehavior.NoAction);
@@ -95,13 +95,13 @@ namespace MohiuddinCoreMasterDetailCrud.Models
 
             modelBuilder.Entity<CourseInstructor>()
                 .HasOne(ci => ci.Course)
-                .WithMany(c => c.CourseInstructors)
+                .WithMany(c => c.CourseInstructor)
                 .HasForeignKey(ci => ci.CourseId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<CourseInstructor>()
                 .HasOne(ci => ci.Instructor)
-                .WithMany(i => i.CourseInstructors)
+                .WithMany(i => i.CourseInstructor)
                 .HasForeignKey(ci => ci.InstructorID)
                 .OnDelete(DeleteBehavior.NoAction);
 

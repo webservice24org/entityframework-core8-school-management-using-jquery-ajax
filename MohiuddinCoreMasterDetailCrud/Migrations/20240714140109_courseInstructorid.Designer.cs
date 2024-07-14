@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MohiuddinCoreMasterDetailCrud.Models;
 
@@ -11,9 +12,11 @@ using MohiuddinCoreMasterDetailCrud.Models;
 namespace MohiuddinCoreMasterDetailCrud.Migrations
 {
     [DbContext(typeof(MohiuddinCoreMasterDetailsContext))]
-    partial class MohiuddinCoreMasterDetailsContextModelSnapshot : ModelSnapshot
+    [Migration("20240714140109_courseInstructorid")]
+    partial class courseInstructorid
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,6 +56,9 @@ namespace MohiuddinCoreMasterDetailCrud.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("InstructorID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CourseInstructorId")
                         .HasColumnType("int");
 
                     b.HasKey("CourseId", "InstructorID");
@@ -282,13 +288,13 @@ namespace MohiuddinCoreMasterDetailCrud.Migrations
             modelBuilder.Entity("MohiuddinCoreMasterDetailCrud.Models.CourseInstructor", b =>
                 {
                     b.HasOne("MohiuddinCoreMasterDetailCrud.Models.Course", "Course")
-                        .WithMany("CourseInstructor")
+                        .WithMany("CourseInstructors")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("MohiuddinCoreMasterDetailCrud.Models.Instructor", "Instructor")
-                        .WithMany("CourseInstructor")
+                        .WithMany("CourseInstructors")
                         .HasForeignKey("InstructorID")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
@@ -376,7 +382,7 @@ namespace MohiuddinCoreMasterDetailCrud.Migrations
 
             modelBuilder.Entity("MohiuddinCoreMasterDetailCrud.Models.Course", b =>
                 {
-                    b.Navigation("CourseInstructor");
+                    b.Navigation("CourseInstructors");
 
                     b.Navigation("Enrollments");
 
@@ -390,7 +396,7 @@ namespace MohiuddinCoreMasterDetailCrud.Migrations
 
             modelBuilder.Entity("MohiuddinCoreMasterDetailCrud.Models.Instructor", b =>
                 {
-                    b.Navigation("CourseInstructor");
+                    b.Navigation("CourseInstructors");
 
                     b.Navigation("Departments");
 
