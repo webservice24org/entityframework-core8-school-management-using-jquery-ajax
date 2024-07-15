@@ -1,13 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-namespace MohiuddinCoreMasterDetailCrud.Models;
-
-public class Module
+namespace MohiuddinCoreMasterDetailCrud.Models
 {
-    public int ModuleId { get; set; }
-    public string ModuleName { get; set; }
-    public int Duration { get; set; }
-    public int StudentId { get; set; }
-    public Student Student { get; set; }
+
+    public class Module
+    {
+        public int ModuleId { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string ModuleName { get; set; }
+
+        [Required]
+        public int Duration { get; set; }
+
+        [Required]
+        public int CourseId { get; set; }
+        public virtual Course Course { get; set; }
+    }
+
+
 }

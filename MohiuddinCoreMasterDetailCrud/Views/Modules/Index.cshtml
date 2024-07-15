@@ -1,0 +1,63 @@
+﻿@model MohiuddinCoreMasterDetailCrud.Models.ViewModels.ModuleViewModel
+
+@{
+    ViewData["Title"] = "Modules";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow-lg bg-body-tertiary">
+            <div class="card-header">
+                <h2 class="float-start">Modules List</h2>
+                <button type="button" id="addModulesBtn" class="float-end btn btn-success" data-bs-toggle="modal" data-bs-target="#ModulesModal">
+                    Add Module
+                </button>
+            </div>
+            <div class="card-body">
+                <div id="ModulesSection">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="ModulesModal" tabindex="-1" aria-labelledby="ModulesModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="ModulesModalLabel"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="ModulesForm">
+                    <input type="hidden" asp-for="ModuleId" />
+                    
+                    <div class="form-group mb-2">
+                        <label asp-for="CourseId" class="control-label mb-1"></label>
+                        <select class="form-control" asp-for="CourseId" id="CourseId">
+                            <option value="0">---Select Course---</option>
+                        </select>
+                        <span asp-validation-for="CourseId" class="text-danger"></span>
+                    </div>
+                    <button type="button" class="btn btn-primary float-end mb-3" id="addModuleBtn">Add Module</button>
+                    <div id="modulesTableContainer">
+                        @Html.Partial("~/Views/Shared/_ModulesTable.cshtml", Model.Modules)
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" id="saveModule" class="btn btn-primary">Insert</button>
+                <button type="button" id="updateModule" class="btn btn-primary">Update</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/module.js"></script>

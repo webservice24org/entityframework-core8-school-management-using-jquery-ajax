@@ -13,6 +13,5 @@ public class Student
     public bool IsEnroll { get; set; }
     public int CourseId { get; set; }
     public Course Course { get; set; }
-    public ICollection<Module> Modules { get; set; }
     public virtual ICollection<Enrollment> Enrollments { get; set; }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HPOecU30Jsd+oCdSbgSYusE9aCk9oRDouyFiF0shs/4=",
+  "Hash": "2JH7D7OvZ8OBcj6PjPPxUoS0vwCbkhPoj+PL3PeAnV8=",
   "Source": "MohiuddinCoreMasterDetailCrud",
   "BasePath": "_content/MohiuddinCoreMasterDetailCrud",
   "Mode": "Default",
@@ -93,12 +93,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\10fb895e-0d0e-43ea-ae8a-634517f11408_Black and Red Professional Business Youtube Thumbnail.png",
+      "Identity": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\1e11c387-a012-48ce-9145-c26424e936d3_cloth.jpg",
       "SourceId": "MohiuddinCoreMasterDetailCrud",
       "SourceType": "Discovered",
       "ContentRoot": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\",
       "BasePath": "_content/MohiuddinCoreMasterDetailCrud",
-      "RelativePath": "Images/10fb895e-0d0e-43ea-ae8a-634517f11408_Black and Red Professional Business Youtube Thumbnail.png",
+      "RelativePath": "Images/1e11c387-a012-48ce-9145-c26424e936d3_cloth.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -109,7 +109,26 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\10fb895e-0d0e-43ea-ae8a-634517f11408_Black and Red Professional Business Youtube Thumbnail.png"
+      "OriginalItemSpec": "wwwroot\\Images\\1e11c387-a012-48ce-9145-c26424e936d3_cloth.jpg"
+    },
+    {
+      "Identity": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\f0c50d25-e339-40d9-bc2a-5127c271e097_OIP (1).jpg",
+      "SourceId": "MohiuddinCoreMasterDetailCrud",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\",
+      "BasePath": "_content/MohiuddinCoreMasterDetailCrud",
+      "RelativePath": "Images/f0c50d25-e339-40d9-bc2a-5127c271e097_OIP (1).jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\f0c50d25-e339-40d9-bc2a-5127c271e097_OIP (1).jpg"
     },
     {
       "Identity": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\Images\\noimage.jpg",
@@ -167,6 +186,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Instructor.js"
+    },
+    {
+      "Identity": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\js\\module.js",
+      "SourceId": "MohiuddinCoreMasterDetailCrud",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\",
+      "BasePath": "_content/MohiuddinCoreMasterDetailCrud",
+      "RelativePath": "js/module.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\module.js"
     },
     {
       "Identity": "G:\\MVC_Core\\MohiuddinCoreMasterDetailCrud\\MohiuddinCoreMasterDetailCrud\\wwwroot\\js\\site.js",
