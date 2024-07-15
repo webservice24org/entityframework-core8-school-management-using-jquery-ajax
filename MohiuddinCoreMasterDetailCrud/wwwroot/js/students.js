@@ -46,7 +46,7 @@ $(document).on('click', '.editStudentBtn', function () {
                 var modulesHtml = '';
                 if (student.modules.length > 0) {
                     $.each(student.modules, function (index, module) {
-                        addModuleRow(module); // Add module row
+                        addModuleRow(module);
                     });
                 }
 
@@ -144,9 +144,6 @@ $(document).on('click', '.detailsStudentBtn', function () {
     });
 });
 
-
-
-
 $(document).on('click', '.removeModuleBtn', function () {
     $(this).closest('tr').remove();
 });
@@ -196,6 +193,13 @@ function loadCourses(selectedCourseId = 0, callback) {
     });
 }
 
+$('#saveStudent').click(function () {
+    saveStudent();
+});
+
+$('#updateStudent').click(function () {
+    saveStudent();
+});
 function saveStudent() {
     var formData = new FormData($('#studentForm')[0]);
     $.ajax({
@@ -219,13 +223,7 @@ function saveStudent() {
     });
 }
 
-$('#saveStudent').click(function () {
-    saveStudent();
-});
 
-$('#updateStudent').click(function () {
-    saveStudent();
-});
 
 $(document).on('click', '.deleteStudentBtn', function () {
     var studentId = $(this).data('id');

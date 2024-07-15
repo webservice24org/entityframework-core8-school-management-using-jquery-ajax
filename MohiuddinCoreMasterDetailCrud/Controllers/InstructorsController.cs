@@ -54,8 +54,8 @@ namespace MohiuddinCoreMasterDetailCrud.Controllers
             {
                 var instructorDetails = await _context.Instructors
                     .Where(i => i.InstructorID == id)
-                    .Include(i => i.InstructorDetails)  // Include InstructorDetails
-                    .Include(i => i.OfficeAssignment)  // Include OfficeAssignment
+                    .Include(i => i.InstructorDetails) 
+                    .Include(i => i.OfficeAssignment)  
                     .Select(i => new
                     {
                         Instructor = i,
@@ -66,7 +66,7 @@ namespace MohiuddinCoreMasterDetailCrud.Controllers
                             .Select(ci => new
                             {
                                 Course = _context.Courses
-                                    .Include(c => c.Department) // Include Department
+                                    .Include(c => c.Department) 
                                     .FirstOrDefault(c => c.CourseId == ci.CourseId)
                             })
                             .ToList()
@@ -87,7 +87,6 @@ namespace MohiuddinCoreMasterDetailCrud.Controllers
                         lastName = instructorDetails.Instructor.LastName,
                         joinDate = instructorDetails.Instructor.JoinDate,
                         mobile = instructorDetails.Instructor.Mobile
-                        // Add more properties as needed
                     },
                     instructorDetails = new
                     {
@@ -96,19 +95,17 @@ namespace MohiuddinCoreMasterDetailCrud.Controllers
                         dob = instructorDetails.InstructorDetails?.Dob,
                         salary = instructorDetails.InstructorDetails?.Salary,
                         instructorPicture = instructorDetails.InstructorDetails?.InstructorPicture
-                        // Add more details from InstructorDetails model
                     },
                     officeAssignment = new
                     {
                         location = instructorDetails.OfficeAssignment?.Location
-                        // Add more properties from OfficeAssignment model
                     },
                     courses = instructorDetails.Courses.Select(c => new
                     {
                         courseId = c.Course.CourseId,
                         courseName = c.Course.CourseName,
-                        departmentName = c.Course.Department.DepartmentName // Include DepartmentName
-                                                                            // Add more course properties as needed
+                        departmentName = c.Course.Department.DepartmentName 
+                                                                            
                     }).ToList()
                 };
 
@@ -179,8 +176,133 @@ namespace MohiuddinCoreMasterDetailCrud.Controllers
             return Json(new { success = true, message = "Instructor inserted successfully" });
         }
 
+        [HttpGet]
+        public async Task<JsonResult> EditInstructor(int id)
+        {
+            var instructor = await _context.Instructors
+                .Include(i => i.InstructorDetails)
+                .Include(i => i.CourseInstructor)
+                    .ThenInclude(ci => ci.Course)
+                .Include(i => i.OfficeAssignment)  
+                .Where(i => i.InstructorID == id)
+                .Select(i => new
+                {
+                    i.InstructorID,
+                    i.FirstName,
+                    i.LastName,
+                    i.JoinDate,
+                    i.Mobile,
+                    InstructorDetailsID = i.InstructorDetails.Id,
+                    i.InstructorDetails.PresentAddress,
+                    i.InstructorDetails.PermanentAddress,
+                    i.InstructorDetails.Dob,
+                    i.InstructorDetails.Salary,
+                    i.InstructorDetails.InstructorPicture,
+                    SelectedCourseIDs = i.CourseInstructor.Select(ci => ci.CourseId).ToList(),
+                    OfficeLocation = i.OfficeAssignment.Location  
+                })
+                .FirstOrDefaultAsync();
 
-        
+            if (instructor == null)
+            {
+                return Json(new { success = false, message = "Instructor not found" });
+            }
+
+            return Json(new { success = true, data = instructor });
+        }
+
+
+        [HttpPost]
+        public async Task<JsonResult> UpdateInstructor([FromForm] InstructorViewModel instructor)
+        {
+            var existingInstructor = await _context.Instructors
+                .Include(i => i.InstructorDetails)
+                .Include(i => i.OfficeAssignment)
+                .Include(i => i.CourseInstructor)
+                .FirstOrDefaultAsync(i => i.InstructorID == instructor.InstructorID);
+
+            if (existingInstructor == null)
+            {
+                return Json(new { success = false, message = "Instructor not found" });
+            }
+
+            existingInstructor.FirstName = instructor.FirstName;
+            existingInstructor.LastName = instructor.LastName;
+            existingInstructor.JoinDate = instructor.JoinDate;
+            existingInstructor.Mobile = instructor.Mobile;
+
+            if (existingInstructor.InstructorDetails == null)
+            {
+                existingInstructor.InstructorDetails = new InstructorDetails
+                {
+                    InstructorID = existingInstructor.InstructorID,
+                    PresentAddress = instructor.PresentAddress,
+                    PermanentAddress = instructor.PermanentAddress,
+                    Dob = instructor.Dob ?? DateTime.MinValue,
+                    Salary = instructor.Salary ?? 0,
+                    InstructorPicture = instructor.InstructorProfile != null ? GetUploadedFileName(instructor) : null
+                };
+                _context.InstructorDetails.Add(existingInstructor.InstructorDetails);
+            }
+            else
+            {
+                existingInstructor.InstructorDetails.PresentAddress = instructor.PresentAddress;
+                existingInstructor.InstructorDetails.PermanentAddress = instructor.PermanentAddress;
+                existingInstructor.InstructorDetails.Dob = instructor.Dob ?? DateTime.MinValue;
+                existingInstructor.InstructorDetails.Salary = instructor.Salary ?? 0;
+
+                if (instructor.InstructorProfile != null)
+                {
+                    if (!string.IsNullOrEmpty(existingInstructor.InstructorDetails.InstructorPicture))
+                    {
+                        var oldImagePath = Path.Combine(_webHost.WebRootPath, "Images", existingInstructor.InstructorDetails.InstructorPicture);
+                        if (System.IO.File.Exists(oldImagePath))
+                        {
+                            System.IO.File.Delete(oldImagePath);
+                        }
+                    }
+
+                    existingInstructor.InstructorDetails.InstructorPicture = GetUploadedFileName(instructor);
+                }
+            }
+
+            if (!string.IsNullOrWhiteSpace(instructor.OfficeAssignment?.Location))
+            {
+                if (existingInstructor.OfficeAssignment == null)
+                {
+                    existingInstructor.OfficeAssignment = new OfficeAssignment
+                    {
+                        InstructorID = existingInstructor.InstructorID,
+                        Location = instructor.OfficeAssignment.Location
+                    };
+                    _context.OfficeAssignments.Add(existingInstructor.OfficeAssignment);
+                }
+                else
+                {
+                    existingInstructor.OfficeAssignment.Location = instructor.OfficeAssignment.Location;
+                }
+            }
+
+            var existingCourseAssignments = _context.CourseInstructor.Where(ci => ci.InstructorID == existingInstructor.InstructorID);
+            _context.CourseInstructor.RemoveRange(existingCourseAssignments);
+
+            if (instructor.SelectedCourseIDs != null && instructor.SelectedCourseIDs.Any())
+            {
+                foreach (var courseId in instructor.SelectedCourseIDs)
+                {
+                    var courseInstructor = new CourseInstructor
+                    {
+                        CourseId = courseId,
+                        InstructorID = existingInstructor.InstructorID
+                    };
+                    _context.CourseInstructor.Add(courseInstructor);
+                }
+            }
+
+            await _context.SaveChangesAsync();
+
+            return Json(new { success = true, message = "Instructor updated successfully" });
+        }
 
 
         private string GetUploadedFileName(InstructorViewModel instructorpic)
@@ -200,6 +322,46 @@ namespace MohiuddinCoreMasterDetailCrud.Controllers
             return uniqueFileName;
         }
 
+        [HttpPost]
+        public async Task<JsonResult> DeleteInstructor(int id)
+        {
+            var instructor = await _context.Instructors
+                .Include(i => i.InstructorDetails)
+                .Include(i => i.OfficeAssignment)
+                .Include(i => i.CourseInstructor)
+                .FirstOrDefaultAsync(i => i.InstructorID == id);
+
+            if (instructor == null)
+            {
+                return Json(new { success = false, message = "Instructor not found" });
+            }
+
+            if (instructor.InstructorDetails != null)
+            {
+                if (!string.IsNullOrEmpty(instructor.InstructorDetails.InstructorPicture))
+                {
+                    var imagePath = Path.Combine(_webHost.WebRootPath, "Images", instructor.InstructorDetails.InstructorPicture);
+                    if (System.IO.File.Exists(imagePath))
+                    {
+                        System.IO.File.Delete(imagePath);
+                    }
+                }
+                _context.InstructorDetails.Remove(instructor.InstructorDetails);
+            }
+
+            if (instructor.OfficeAssignment != null)
+            {
+                _context.OfficeAssignments.Remove(instructor.OfficeAssignment);
+            }
+
+            var courseAssignments = _context.CourseInstructor.Where(ci => ci.InstructorID == id);
+            _context.CourseInstructor.RemoveRange(courseAssignments);
+
+            _context.Instructors.Remove(instructor);
+            await _context.SaveChangesAsync();
+
+            return Json(new { success = true, message = "Instructor deleted successfully" });
+        }
 
 
         public JsonResult GetAllCourses()
