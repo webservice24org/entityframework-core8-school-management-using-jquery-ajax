@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MohiuddinCoreMasterDetailCrud")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5b890bb3d0737b82d908d5cfeb7a159deb388e90")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0cd934d82aaaf6dedab29b072320fae363ff32bd")]
 [assembly: System.Reflection.AssemblyProductAttribute("MohiuddinCoreMasterDetailCrud")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MohiuddinCoreMasterDetailCrud")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

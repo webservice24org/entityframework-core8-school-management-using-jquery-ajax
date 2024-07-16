@@ -14,6 +14,7 @@ namespace MohiuddinCoreMasterDetailCrud.Models
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Module> Modules { get; set; }
         public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<StudentDetails> StudentDetails { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Enrollment> Enrollments { get; set; }
         public virtual DbSet<Instructor> Instructors { get; set; }
@@ -55,6 +56,21 @@ namespace MohiuddinCoreMasterDetailCrud.Models
                     .HasForeignKey(d => d.CourseId)
                     .HasConstraintName("FK__Students__Course__267ABA7A")
                     .OnDelete(DeleteBehavior.NoAction);
+
+                entity.HasOne(d => d.StudentDetails)
+                    .WithOne(p => p.Student)
+                    .HasForeignKey<Student>(d => d.StudentDetailsId)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
+
+            modelBuilder.Entity<StudentDetails>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+
+                entity.HasOne(d => d.Student)
+                    .WithOne(p => p.StudentDetails)
+                    .HasForeignKey<StudentDetails>(d => d.StudentId)
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Department>()
@@ -119,6 +135,5 @@ namespace MohiuddinCoreMasterDetailCrud.Models
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
-
 
 }
