@@ -180,83 +180,83 @@ namespace MohiuddinCoreMasterDetailCrud.Controllers
     //    }
 
 
-    //    [HttpPost]
-    //    public JsonResult UpdateStudent(StudentViewModel studentViewModel)
+    //[HttpPost]
+    //public JsonResult UpdateStudent(StudentViewModel studentViewModel)
+    //{
+    //    using var transaction = _db.Database.BeginTransaction();
+    //    try
     //    {
-    //        using var transaction = _db.Database.BeginTransaction();
-    //        try
+    //        var student = _db.Students
+    //            .Include(s => s.Modules)
+    //            .FirstOrDefault(s => s.StudentId == studentViewModel.StudentId);
+
+    //        if (student == null)
     //        {
-    //            var student = _db.Students
-    //                .Include(s => s.Modules)
-    //                .FirstOrDefault(s => s.StudentId == studentViewModel.StudentId);
-
-    //            if (student == null)
-    //            {
-    //                return Json(new { success = false, message = "Student not found." });
-    //            }
-
-    //            student.StudentName = studentViewModel.StudentName;
-    //            student.Dob = studentViewModel.Dob;
-    //            student.CourseId = studentViewModel.CourseId;
-    //            student.Mobile = studentViewModel.MobileNo;
-    //            student.IsEnroll = studentViewModel.IsEnrolled;
-
-    //            if (studentViewModel.ProfileFile != null)
-    //            {
-
-    //                string newFileName = GetUploadedFileName(studentViewModel);
-    //                if (!string.IsNullOrEmpty(student.ImageUrl))
-    //                {
-    //                    string oldImagePath = Path.Combine(_webHost.WebRootPath, "Images", student.ImageUrl);
-    //                    if (System.IO.File.Exists(oldImagePath))
-    //                    {
-    //                        System.IO.File.Delete(oldImagePath);
-    //                    }
-    //                }
-    //                student.ImageUrl = newFileName;
-    //            }
-
-    //            var existingModules = student.Modules.ToList();
-
-    //            foreach (var existingModule in existingModules)
-    //            {
-    //                if (!studentViewModel.Modules.Any(m => m.ModuleId == existingModule.ModuleId))
-    //                {
-    //                    _db.Modules.Remove(existingModule);
-    //                }
-    //            }
-    //            foreach (var moduleViewModel in studentViewModel.Modules)
-    //            {
-    //                if (!string.IsNullOrWhiteSpace(moduleViewModel.ModuleName) && moduleViewModel.Duration > 0)
-    //                {
-    //                    var existingModule = existingModules.FirstOrDefault(m => m.ModuleId == moduleViewModel.ModuleId);
-    //                    if (existingModule != null)
-    //                    {
-    //                        existingModule.ModuleName = moduleViewModel.ModuleName;
-    //                        existingModule.Duration = moduleViewModel.Duration;
-    //                    }
-    //                    else
-    //                    {
-    //                        student.Modules.Add(new MohiuddinCoreMasterDetailCrud.Models.Module
-    //                        {
-    //                            ModuleName = moduleViewModel.ModuleName,
-    //                            Duration = moduleViewModel.Duration
-    //                        });
-    //                    }
-    //                }
-    //            }
-
-    //            _db.SaveChanges();
-    //            transaction.Commit();
-
-    //            return Json(new { success = true, message = "Student updated successfully." });
+    //            return Json(new { success = false, message = "Student not found." });
     //        }
-    //        catch (Exception ex)
+
+    //        student.StudentName = studentViewModel.StudentName;
+    //        student.Dob = studentViewModel.Dob;
+    //        student.CourseId = studentViewModel.CourseId;
+    //        student.Mobile = studentViewModel.MobileNo;
+    //        student.IsEnroll = studentViewModel.IsEnrolled;
+
+    //        if (studentViewModel.ProfileFile != null)
     //        {
-    //            transaction.Rollback();
-    //            return Json(new { success = false, message = "Error updating student: " + ex.Message + " - Inner Exception: " + ex.InnerException?.Message });
+
+    //            string newFileName = GetUploadedFileName(studentViewModel);
+    //            if (!string.IsNullOrEmpty(student.ImageUrl))
+    //            {
+    //                string oldImagePath = Path.Combine(_webHost.WebRootPath, "Images", student.ImageUrl);
+    //                if (System.IO.File.Exists(oldImagePath))
+    //                {
+    //                    System.IO.File.Delete(oldImagePath);
+    //                }
+    //            }
+    //            student.ImageUrl = newFileName;
     //        }
+
+    //        var existingModules = student.Modules.ToList();
+
+    //        foreach (var existingModule in existingModules)
+    //        {
+    //            if (!studentViewModel.Modules.Any(m => m.ModuleId == existingModule.ModuleId))
+    //            {
+    //                _db.Modules.Remove(existingModule);
+    //            }
+    //        }
+    //        foreach (var moduleViewModel in studentViewModel.Modules)
+    //        {
+    //            if (!string.IsNullOrWhiteSpace(moduleViewModel.ModuleName) && moduleViewModel.Duration > 0)
+    //            {
+    //                var existingModule = existingModules.FirstOrDefault(m => m.ModuleId == moduleViewModel.ModuleId);
+    //                if (existingModule != null)
+    //                {
+    //                    existingModule.ModuleName = moduleViewModel.ModuleName;
+    //                    existingModule.Duration = moduleViewModel.Duration;
+    //                }
+    //                else
+    //                {
+    //                    student.Modules.Add(new MohiuddinCoreMasterDetailCrud.Models.Module
+    //                    {
+    //                        ModuleName = moduleViewModel.ModuleName,
+    //                        Duration = moduleViewModel.Duration
+    //                    });
+    //                }
+    //            }
+    //        }
+
+    //        _db.SaveChanges();
+    //        transaction.Commit();
+
+    //        return Json(new { success = true, message = "Student updated successfully." });
     //    }
+    //    catch (Exception ex)
+    //    {
+    //        transaction.Rollback();
+    //        return Json(new { success = false, message = "Error updating student: " + ex.Message + " - Inner Exception: " + ex.InnerException?.Message });
+    //    }
+    //}
 
     //    private string GetUploadedFileName(StudentViewModel student)
     //    {
@@ -280,7 +280,7 @@ namespace MohiuddinCoreMasterDetailCrud.Controllers
     //    {
     //        try
     //        {
-                
+
     //            var student = _db.Students
     //                .Include(s => s.Modules)
     //                .FirstOrDefault(s => s.StudentId == studentId);

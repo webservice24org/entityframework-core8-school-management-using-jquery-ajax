@@ -27,5 +27,10 @@ div#CourseSection .dt-length label, #studentBody .dt-length label, #DepartmentSe
     font-size: 18px;
 }
 
+#modulesAccordion .accordion-button:focus {
+    border: 0px !important;
+    outline: 0;
+    box-shadow: none;
+}
 
 
