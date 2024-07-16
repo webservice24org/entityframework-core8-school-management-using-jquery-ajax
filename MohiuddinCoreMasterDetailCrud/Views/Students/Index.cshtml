@@ -31,6 +31,7 @@
             <form id="studentForm" enctype="multipart/form-data">
                 <div class="modal-body">
                     <input type="hidden" asp-for="StudentId" />
+                    
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-2">
@@ -38,12 +39,70 @@
                                 <input asp-for="StudentName" class="form-control" />
                                 <span asp-validation-for="StudentName" class="text-danger"></span>
                             </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-2">
+                                <label asp-for="MobileNo" class="control-label mb-1"></label>
+                                <input asp-for="MobileNo" class="form-control" />
+                                <span asp-validation-for="MobileNo" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-2">
+                                <label asp-for="GuardianName" class="control-label mb-1"></label>
+                                <input asp-for="GuardianName" class="form-control" />
+                                <span asp-validation-for="GuardianName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-2">
+                                <label asp-for="RelationWithGuardian" class="control-label mb-1"></label>
+                                <input asp-for="RelationWithGuardian" class="form-control" />
+                                <span asp-validation-for="RelationWithGuardian" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
                             <div class="form-group mb-2">
                                 <label asp-for="Dob" class="control-label mb-1"></label>
                                 <input asp-for="Dob" class="form-control" type="date" />
                                 <span asp-validation-for="Dob" class="text-danger"></span>
                             </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-2">
+                                <label asp-for="GuardianMobile" class="control-label mb-1"></label>
+                                <input asp-for="GuardianMobile" class="form-control" />
+                                <span asp-validation-for="GuardianMobile" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>                    
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-2">
+                                <label asp-for="PresentAddress" class="control-label mb-1"></label>
+                                <input asp-for="PresentAddress" class="form-control" />
+                                <span asp-validation-for="PresentAddress" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-2">
+                                <label asp-for="PermanentAddress" class="control-label mb-1"></label>
+                                <input asp-for="PermanentAddress" class="form-control" />
+                                <span asp-validation-for="PermanentAddress" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
 
+
+                    <div class="row">
+                        <div class="col-md-12">
                             <div class="form-group mb-2">
                                 <label asp-for="CourseId" class="control-label mb-1"></label>
                                 <select class="form-control" asp-for="CourseId" id="CourseId">
@@ -51,37 +110,23 @@
                                 </select>
                                 <span asp-validation-for="CourseId" class="text-danger"></span>
                             </div>
-
-                            <div class="form-group mb-2">
-                                <label asp-for="MobileNo" class="control-label mb-1"></label>
-                                <input asp-for="MobileNo" class="form-control" />
-                                <span asp-validation-for="MobileNo" class="text-danger"></span>
-                            </div>
-                            <div class="form-group mb-2">
-                                <label asp-for="IsEnrolled" class="control-label mb-1"></label>
-                                <input type="checkbox" asp-for="IsEnrolled" />
-                                <span asp-validation-for="IsEnrolled" class="text-danger"></span>
-                            </div>
-                            <div class="row btn-group mb-2">
-                                <div class="form-group col-md-8">
-                                    <label asp-for="ProfileFile" class="control-label mb-1"></label>
-                                    <div class="customFile">
-                                        <input asp-for="ProfileFile" type="file" class="custom-file-input" onchange="readUrl(this)" />
-                                        <label class="custom-file-label invisible" for="customFile">Choose File</label>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <img id="imageFile" src="~/Images/noimage.jpg" class="img-thumbnail" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <button type="button" class="btn btn-primary float-end mb-3" id="addModuleBtn" onclick="AddModule()">Add Module</button>
-                            <div id="modulesTableContainer">
-                                @* @Html.Partial("~/Views/Shared/_ModulesTable.cshtml", Model.Modules) *@
-                            </div>
                         </div>
                     </div>
+                    
+                    
+                    <div class="row btn-group mb-2">
+                        <div class="form-group col-md-8">
+                            <label asp-for="ProfileFile" class="control-label mb-1"></label>
+                            <div class="customFile">
+                                <input asp-for="ProfileFile" type="file" class="custom-file-input" onchange="readUrl(this)" />
+                                <label class="custom-file-label invisible" for="customFile">Choose File</label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <img id="imageFile" src="~/Images/noimage.jpg" class="img-thumbnail" />
+                        </div>
+                    </div>
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="saveStudent" class="btn btn-primary" onclick="CreateStudent()">Insert</button>
