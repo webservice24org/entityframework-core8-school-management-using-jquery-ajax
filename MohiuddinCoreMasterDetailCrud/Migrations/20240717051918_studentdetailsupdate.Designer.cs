@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MohiuddinCoreMasterDetailCrud.Models;
 
@@ -11,9 +12,11 @@ using MohiuddinCoreMasterDetailCrud.Models;
 namespace MohiuddinCoreMasterDetailCrud.Migrations
 {
     [DbContext(typeof(MohiuddinCoreMasterDetailsContext))]
-    partial class MohiuddinCoreMasterDetailsContextModelSnapshot : ModelSnapshot
+    [Migration("20240717051918_studentdetailsupdate")]
+    partial class studentdetailsupdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -234,7 +237,7 @@ namespace MohiuddinCoreMasterDetailCrud.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudentId"));
 
-                    b.Property<int?>("CourseId")
+                    b.Property<int>("CourseId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Dob")
@@ -394,9 +397,14 @@ namespace MohiuddinCoreMasterDetailCrud.Migrations
 
             modelBuilder.Entity("MohiuddinCoreMasterDetailCrud.Models.Student", b =>
                 {
-                    b.HasOne("MohiuddinCoreMasterDetailCrud.Models.Course", null)
+                    b.HasOne("MohiuddinCoreMasterDetailCrud.Models.Course", "Course")
                         .WithMany("Students")
-                        .HasForeignKey("CourseId");
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK__Students__Course__267ABA7A");
+
+                    b.Navigation("Course");
                 });
 
             modelBuilder.Entity("MohiuddinCoreMasterDetailCrud.Models.StudentDetails", b =>

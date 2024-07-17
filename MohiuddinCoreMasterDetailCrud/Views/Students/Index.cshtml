@@ -101,7 +101,7 @@
                     </div>
 
 
-                    <div class="row">
+                    <div class="row mb-5">
                         <div class="col-md-12">
                             <div class="form-group mb-2">
                                 <label asp-for="CourseId" class="control-label mb-1"></label>
@@ -129,8 +129,8 @@
                     
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="saveStudent" class="btn btn-primary" onclick="CreateStudent()">Insert</button>
-                    <button type="button" id="updateStudent" class="btn btn-primary" onclick="UpdateStudent()">Update</button>
+                    <button type="button" id="saveStudent" class="btn btn-primary" >Insert</button>
+                    <button type="button" id="updateStudent" class="btn btn-primary">Update</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </form>
@@ -138,11 +138,11 @@
     </div>
 </div>
 
-<div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+<div class="modal fade" id="stdDetailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="detailsModalLabel">Details Information of: <span id="detailsModalLabelName" class="fw-bold"></span></h1>
+                <h1 class="modal-title fs-5" id="stdDetailsModalLabel">Details Information of: <span id="stdDetailsModalName" class="fw-bold"></span></h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body"></div>

@@ -51,16 +51,7 @@ namespace MohiuddinCoreMasterDetailCrud.Models
                 entity.Property(e => e.Mobile).HasMaxLength(14).IsUnicode(false);
                 entity.Property(e => e.StudentName).HasMaxLength(50).IsUnicode(false);
 
-                entity.HasOne(d => d.Course)
-                    .WithMany(p => p.Students)
-                    .HasForeignKey(d => d.CourseId)
-                    .HasConstraintName("FK__Students__Course__267ABA7A")
-                    .OnDelete(DeleteBehavior.NoAction);
-
-                entity.HasOne(d => d.StudentDetails)
-                    .WithOne(p => p.Student)
-                    .HasForeignKey<Student>(d => d.StudentDetailsId)
-                    .OnDelete(DeleteBehavior.Cascade);
+                
             });
 
             modelBuilder.Entity<StudentDetails>(entity =>

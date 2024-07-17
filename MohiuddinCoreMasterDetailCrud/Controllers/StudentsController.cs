@@ -20,21 +20,82 @@ namespace MohiuddinCoreMasterDetailCrud.Controllers
         }
         public IActionResult Index()
         {
-            
-
             return View();
         }
 
-
         [HttpGet]
-        public JsonResult GetStudents()
+        public async Task<JsonResult> GetStudents()
         {
-            var students = _db.Students.ToList();
+            try
+            {
+                var students = await _db.Students
+                    .Select(s => new StudentViewModel
+                    {
+                        StudentId = s.StudentId,
+                        StudentName = s.StudentName,
+                        MobileNo = s.Mobile,
+                        Dob = s.Dob,
+                        ImageUrl = s.ImageUrl,
+                    }).ToListAsync();
 
-            return Json(students);
+                return Json(new { success = true, data = students });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Error: " + ex.Message });
+            }
         }
 
-        
+        [HttpGet]
+        public async Task<JsonResult> GetStudentDetails(int id)
+        {
+            try
+            {
+                var studentDetails = await _db.Students
+                    .Where(s => s.StudentId == id)
+                    .Include(s => s.Enrollments)
+                        .ThenInclude(e => e.Course)
+                            .ThenInclude(c => c.Modules)
+                    .Include(s => s.StudentDetails)
+                    .Select(s => new
+                    {
+                        s.StudentId,
+                        s.StudentName,
+                        s.Mobile,
+                        s.ImageUrl,
+                        Enrollments = s.Enrollments.Select(e => new
+                        {
+                            e.CourseId,
+                            e.Course.CourseName,
+                            Modules = e.Course.Modules.Select(m => new
+                            {
+                                m.ModuleId,
+                                m.ModuleName,
+                                m.Duration
+                            }).ToList()
+                        }).ToList(),
+                        StudentDetails = new
+                        {
+                            s.StudentDetails.PresentAddress,
+                            s.StudentDetails.PermanentAddress,
+                            s.StudentDetails.GuardianName,
+                            s.StudentDetails.RelationWithGuardian,
+                            s.StudentDetails.GuardianMobile
+                        }
+                    }).FirstOrDefaultAsync();
+
+                if (studentDetails == null)
+                {
+                    return Json(new { success = false, message = "Student not found." });
+                }
+
+                return Json(new { success = true, data = studentDetails });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Error: " + ex.Message });
+            }
+        }
 
         public JsonResult GetCourses()
         {
@@ -49,9 +110,9 @@ namespace MohiuddinCoreMasterDetailCrud.Controllers
 
 
         [HttpPost]
-        public JsonResult InsertStudent(StudentViewModel studentViewModel)
+        public async Task<JsonResult> InsertStudent(StudentViewModel studentViewModel)
         {
-            using var transaction = _db.Database.BeginTransaction();
+            using var transaction = await _db.Database.BeginTransactionAsync();
             try
             {
                 string imageUrl = GetUploadedFileName(studentViewModel);
@@ -62,17 +123,36 @@ namespace MohiuddinCoreMasterDetailCrud.Controllers
                         StudentName = studentViewModel.StudentName,
                         Dob = studentViewModel.Dob,
                         Mobile = studentViewModel.MobileNo,
-                        ImageUrl = imageUrl,
-                        CourseId = studentViewModel.CourseId
+                        ImageUrl = imageUrl
                     };
 
                     _db.Students.Add(student);
-                    _db.SaveChanges();
+                    await _db.SaveChangesAsync();
 
-                    
+                    var studentDetails = new StudentDetails
+                    {
+                        StudentId = student.StudentId,
+                        PresentAddress = studentViewModel.PresentAddress,
+                        PermanentAddress = studentViewModel.PermanentAddress,
+                        GuardianName = studentViewModel.GuardianName,
+                        RelationWithGuardian = studentViewModel.RelationWithGuardian,
+                        GuardianMobile = studentViewModel.GuardianMobile
+                    };
 
-                    transaction.Commit();
-                    return Json(new { success = true, message = "Student and modules added successfully." });
+                    _db.StudentDetails.Add(studentDetails);
+                    await _db.SaveChangesAsync();
+
+                    var enrollment = new Enrollment
+                    {
+                        StudentId = student.StudentId,
+                        CourseId = studentViewModel.CourseId
+                    };
+
+                    _db.Enrollments.Add(enrollment);
+                    await _db.SaveChangesAsync();
+
+                    await transaction.CommitAsync();
+                    return Json(new { success = true, message = "Student and related data added successfully." });
                 }
                 else
                 {
@@ -81,8 +161,173 @@ namespace MohiuddinCoreMasterDetailCrud.Controllers
             }
             catch (Exception ex)
             {
-                transaction.Rollback();
+                await transaction.RollbackAsync();
                 return Json(new { success = false, message = "Error: " + ex.Message });
+            }
+        }
+
+        [HttpGet]
+        public async Task<JsonResult> EditStudent(int id)
+        {
+            try
+            {
+                var student = await _db.Students
+                    .Include(s => s.StudentDetails)
+                    .Include(s => s.Enrollments)
+                        .ThenInclude(e => e.Course)
+                    .Where(s => s.StudentId == id)
+                    .Select(s => new
+                    {
+                        s.StudentId,
+                        s.StudentName,
+                        s.Dob,
+                        s.Mobile,
+                        s.ImageUrl,
+                        s.StudentDetails.PresentAddress,
+                        s.StudentDetails.PermanentAddress,
+                        s.StudentDetails.GuardianName,
+                        s.StudentDetails.RelationWithGuardian,
+                        s.StudentDetails.GuardianMobile,
+                        s.Enrollments.FirstOrDefault().CourseId  
+                    })
+                    .FirstOrDefaultAsync();
+
+                if (student != null)
+                {
+                    return Json(new { success = true, data = student });
+                }
+                else
+                {
+                    return Json(new { success = false, message = "Student not found." });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Error: " + ex.Message });
+            }
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> UpdateStudent(StudentViewModel studentViewModel)
+        {
+            using var transaction = await _db.Database.BeginTransactionAsync();
+            try
+            {
+                var existingStudent = await _db.Students
+                    .Include(s => s.StudentDetails)
+                    .FirstOrDefaultAsync(s => s.StudentId == studentViewModel.StudentId);
+
+                if (existingStudent == null)
+                {
+                    return Json(new { success = false, message = "Student not found." });
+                }
+
+                string imageUrl = GetUploadedFileName(studentViewModel);
+                if (imageUrl != null)
+                {
+                    if (!string.IsNullOrEmpty(existingStudent.ImageUrl))
+                    {
+                        DeleteImageIfExists(existingStudent.ImageUrl);
+                    }
+
+                    existingStudent.ImageUrl = imageUrl;
+                }
+
+                existingStudent.StudentName = studentViewModel.StudentName;
+                existingStudent.Dob = studentViewModel.Dob;
+                existingStudent.Mobile = studentViewModel.MobileNo;
+
+                if (existingStudent.StudentDetails != null)
+                {
+                    existingStudent.StudentDetails.PresentAddress = studentViewModel.PresentAddress;
+                    existingStudent.StudentDetails.PermanentAddress = studentViewModel.PermanentAddress;
+                    existingStudent.StudentDetails.GuardianName = studentViewModel.GuardianName;
+                    existingStudent.StudentDetails.RelationWithGuardian = studentViewModel.RelationWithGuardian;
+                    existingStudent.StudentDetails.GuardianMobile = studentViewModel.GuardianMobile;
+                }
+                else
+                {
+                    
+                    var studentDetails = new StudentDetails
+                    {
+                        StudentId = existingStudent.StudentId,
+                        PresentAddress = studentViewModel.PresentAddress,
+                        PermanentAddress = studentViewModel.PermanentAddress,
+                        GuardianName = studentViewModel.GuardianName,
+                        RelationWithGuardian = studentViewModel.RelationWithGuardian,
+                        GuardianMobile = studentViewModel.GuardianMobile
+                    };
+                    _db.StudentDetails.Add(studentDetails);
+                }
+
+                
+                var enrollment = await _db.Enrollments.FirstOrDefaultAsync(e => e.StudentId == studentViewModel.StudentId);
+                if (enrollment != null)
+                {
+                    enrollment.CourseId = studentViewModel.CourseId;
+                }
+                else
+                {
+                    enrollment = new Enrollment
+                    {
+                        StudentId = existingStudent.StudentId,
+                        CourseId = studentViewModel.CourseId
+                    };
+                    _db.Enrollments.Add(enrollment);
+                }
+
+                await _db.SaveChangesAsync();
+                await transaction.CommitAsync();
+
+                return Json(new { success = true, message = "Student updated successfully." });
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                return Json(new { success = false, message = "Error: " + ex.Message });
+            }
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> DeleteStudent(int id)
+        {
+            try
+            {
+                var student = await _db.Students
+                    .Include(s => s.Enrollments)
+                    .Include(s => s.StudentDetails)
+                    .FirstOrDefaultAsync(s => s.StudentId == id);
+
+                if (student == null)
+                {
+                    return Json(new { success = false, message = "Student not found." });
+                }
+                _db.Enrollments.RemoveRange(student.Enrollments);
+
+                _db.StudentDetails.Remove(student.StudentDetails);
+
+                if (!string.IsNullOrEmpty(student.ImageUrl))
+                {
+                    DeleteImageIfExists(student.ImageUrl); 
+                }
+
+                _db.Students.Remove(student);
+
+                await _db.SaveChangesAsync();
+
+                return Json(new { success = true, message = "Student and associated data deleted successfully." });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Error: " + ex.Message });
+            }
+        }
+        private void DeleteImageIfExists(string imageUrl)
+        {
+            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), _webHost.WebRootPath, "Images", imageUrl);
+            if (System.IO.File.Exists(imagePath))
+            {
+                System.IO.File.Delete(imagePath);
             }
         }
 
@@ -102,9 +347,6 @@ namespace MohiuddinCoreMasterDetailCrud.Controllers
             }
             return uniqueFileName;
         }
-
-
-
 
 
     }

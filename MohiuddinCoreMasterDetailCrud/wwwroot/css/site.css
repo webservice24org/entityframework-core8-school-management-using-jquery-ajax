@@ -21,7 +21,7 @@ body {
   margin-bottom: 60px;
 }
 
-div#CourseSection .dt-length label, #studentBody .dt-length label, #DepartmentSection .dt-length label {
+div#CourseSection .dt-length label, #studentBody .dt-length label, #DepartmentSection .dt-length label, #InstructorBody .dt-length label {
     padding-left: 5px;
     text-transform: capitalize;
     font-size: 18px;
@@ -31,6 +31,9 @@ div#CourseSection .dt-length label, #studentBody .dt-length label, #DepartmentSe
     border: 0px !important;
     outline: 0;
     box-shadow: none;
+}
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+     box-shadow: none!important; 
 }
 
 

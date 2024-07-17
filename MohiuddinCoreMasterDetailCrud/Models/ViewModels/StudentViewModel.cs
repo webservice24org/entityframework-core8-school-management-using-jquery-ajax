@@ -27,7 +27,6 @@ namespace MohiuddinCoreMasterDetailCrud.Models.ViewModels
         [Display(Name = "Mobile Number")]
         public string MobileNo { get; set; }
 
-        public int? StudentDetailsId { get; set; }
         [Display(Name ="Present Address")]
         public string PresentAddress { get; set; }
         

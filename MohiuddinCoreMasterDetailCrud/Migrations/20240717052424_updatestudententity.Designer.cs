@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MohiuddinCoreMasterDetailCrud.Models;
 
@@ -11,9 +12,11 @@ using MohiuddinCoreMasterDetailCrud.Models;
 namespace MohiuddinCoreMasterDetailCrud.Migrations
 {
     [DbContext(typeof(MohiuddinCoreMasterDetailsContext))]
-    partial class MohiuddinCoreMasterDetailsContextModelSnapshot : ModelSnapshot
+    [Migration("20240717052424_updatestudententity")]
+    partial class updatestudententity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

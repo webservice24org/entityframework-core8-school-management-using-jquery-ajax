@@ -252,7 +252,7 @@
                     tr.append('<td>' + instructor.instructorName + '</td>');
                     tr.append('<td>' + new Date(instructor.joinDate).toLocaleDateString() + '</td>');
                     tr.append('<td><img src="/Images/' + instructor.instructorPicture + '" alt="' + instructor.instructorName + '" style="max-width: 100px; max-height: 100px;"></td>');
-                    tr.append('<td><a href="#" class="btn btn-info InstructorDetailsBtn" data-id="' + instructor.instructorID + '">Details</a><a href="#" class="btn btn-primary InstructorEditBtn" data-id="' + instructor.instructorID + '">Edit</a><a href="#" class="btn btn-danger InstructorDeleteBtn" data-id="' + instructor.instructorID + '">Delete</a></td>');
+                    tr.append('<td><a href="#" class="btn btn-info InstructorDetailsBtn" data-id="' + instructor.instructorID + '">Details</a><a href="#" class="btn btn-primary ms-1 InstructorEditBtn" data-id="' + instructor.instructorID + '">Edit</a><a href="#" class="btn btn-danger ms-1 InstructorDeleteBtn" data-id="' + instructor.instructorID + '">Delete</a></td>');
 
                     tbody.append(tr);
                 });
